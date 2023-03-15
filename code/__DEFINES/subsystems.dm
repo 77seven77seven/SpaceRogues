@@ -289,6 +289,14 @@
 /// Approval voting. Any number of selections per person, and the selection with the most votes wins.
 #define VOTE_COUNT_METHOD_MULTI 2
 
+///liquid defines
+#define SSLIQUIDS_RUN_TYPE_TURFS 1
+#define SSLIQUIDS_RUN_TYPE_GROUPS 2
+#define SSLIQUIDS_RUN_TYPE_IMMUTABLES 3
+#define SSLIQUIDS_RUN_TYPE_EVAPORATION 4
+#define SSLIQUIDS_RUN_TYPE_FIRE 5
+#define SSLIQUIDS_RUN_TYPE_OCEAN 6
+
 /// The choice with the most votes wins. Ties are broken by the first choice to reach that number of votes.
 #define VOTE_WINNER_METHOD_SIMPLE "Simple"
 /// The winning choice is selected randomly based on the number of votes each choice has.
