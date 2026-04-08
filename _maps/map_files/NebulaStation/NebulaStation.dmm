@@ -61809,7 +61809,7 @@
 /area/station/medical/medbay/central)
 "jef" = (
 /obj/structure/extinguisher_cabinet/directional/south,
-/obj/machinery/bci_implanter,
+/obj/machinery/skill_station/advanced,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/white/textured,
 /area/station/science/circuits)
@@ -120899,7 +120899,7 @@
 /turf/open/floor/glass/reinforced,
 /area/station/hallway/secondary/entry)
 "rOO" = (
-/obj/machinery/bci_implanter,
+/obj/machinery/skill_station/advanced,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
 	},

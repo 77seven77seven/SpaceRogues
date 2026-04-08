@@ -665,11 +665,11 @@
 		RND_CATEGORY_CIRCUITRY + RND_SUBCATEGORY_CIRCUITRY_SHELLS
 	)
 
-/datum/design/board/bci_implanter
-	name = "Brain-Computer Interface Manipulation Chamber"
-	desc = "A machine that, when given a brain-computer interface, will implant it into an occupant. Otherwise, will remove any brain-computer interfaces they already have."
-	id = "bci_implanter"
-	build_path = /obj/item/circuitboard/machine/bci_implanter
+/datum/design/board/advanced_skillchip_implanter
+	name = "Advanced Skillsoft Station"
+	desc = "A faster, sleeker, and no safer version of the original Skillsoft Station."
+	id = "adv_skillchip_implanter"
+	build_path = /obj/item/circuitboard/machine/skill_station/advanced
 	build_type = COMPONENT_PRINTER
 	category = list(
 		RND_CATEGORY_CIRCUITRY + RND_CATEGORY_CIRCUITRY_CORE
