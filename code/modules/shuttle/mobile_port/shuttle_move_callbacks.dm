@@ -78,6 +78,7 @@ All ShuttleMove procs go here
 
 	if(rotation)
 		shuttleRotate(rotation, params = ALL) //see shuttle_rotate.dm
+
 	SEND_SIGNAL(src, COMSIG_TURF_AFTER_SHUTTLE_MOVE, oldT)
 
 	return TRUE
@@ -401,6 +402,9 @@ All ShuttleMove procs go here
 	return ..()
 
 /************************************Misc move procs************************************/
+
+/atom/movable/lighting_object/onShuttleMove()
+	return FALSE
 
 /obj/docking_port/mobile/hypotheticalShuttleMove(rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
