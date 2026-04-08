@@ -152,14 +152,19 @@ SUBSYSTEM_DEF(mapping)
 
 	else if (SSmapping.current_map.load_all_away_missions) // we're likely in a local testing environment, so punch it.
 		load_all_away_missions()
+#endif
 
+	// Run terrain gen before ruins so they get proper turfs underneath them
+	// Terrain gen only creates rocks and floors, without lava or objects/mobs
+	run_map_terrain_generation()
+
+#ifndef LOWMEMORYMODE
 	loading_ruins = TRUE
 	setup_ruins()
 	loading_ruins = FALSE
-
 #endif
-	// Run map generation after ruin generation to prevent issues
-	run_map_terrain_generation()
+
+	// Run everything else after ruin generation to prevent issues
 	// Generate our rivers, we do this here so the map doesn't load on top of them
 	setup_rivers()
 	// now that the terrain is generated, including rivers, we can safely populate it with objects and mobs
@@ -279,7 +284,7 @@ SUBSYSTEM_DEF(mapping)
 	// Generate mining ruins
 	var/list/lava_ruins = levels_by_trait(ZTRAIT_LAVA_RUINS)
 	for (var/lava_z in lava_ruins)
-		spawn_rivers(lava_z, 4, /turf/open/lava/smooth/lava_land_surface, /area/lavaland/surface/outdoors/unexplored)
+		spawn_rivers(lava_z, 3, /turf/open/lava/smooth/lava_land_surface, /area/lavaland/surface/outdoors/unexplored) // +1 from the mapped in waypoint
 
 	var/list/ice_ruins = levels_by_trait(ZTRAIT_ICE_RUINS)
 	for (var/ice_z in ice_ruins)
