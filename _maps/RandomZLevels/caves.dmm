@@ -32,9 +32,7 @@
 /obj/item/stack/sheet/runed_metal{
 	amount = 25
 	},
-/obj/item/veilrender/honkrender,
-/obj/item/clothing/mask/gas/clown_hat,
-/obj/item/organ/heart/demon,
+/obj/item/mod/module/anti_magic,
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/bmp_asteroid/level_four)
 "av" = (
@@ -146,13 +144,9 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/caves/bmp_asteroid/level_three)
-"aZ" = (
-/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
-/turf/open/floor/engine/cult,
-/area/awaymission/caves/bmp_asteroid/level_four)
 "ba" = (
 /obj/structure/table/wood/fancy,
-/obj/item/clothing/gloves/kaza_ruk/combatglovesplus,
+/obj/item/book/granter/action/spell/charge,
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/bmp_asteroid/level_four)
 "bf" = (
@@ -1001,7 +995,6 @@
 /obj/item/slimepotion/fireproof,
 /obj/item/gun/energy/e_gun/mini,
 /obj/item/gun/energy/laser/musket,
-/obj/item/organ/eyes/robotic/thermals,
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/bmp_asteroid/level_two)
 "kE" = (
@@ -1062,8 +1055,8 @@
 /turf/open/floor/wood,
 /area/awaymission/caves/northblock)
 "pC" = (
-/obj/item/mjollnir,
 /mob/living/basic/spider/giant/nurse/away_caves,
+/obj/item/nullrod/claymore/talking/chainsword,
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/bmp_asteroid/level_three)
 "pL" = (
@@ -1108,7 +1101,7 @@
 /turf/open/floor/iron,
 /area/awaymission/caves/listeningpost)
 "sE" = (
-/obj/item/greentext,
+/obj/item/clothing/gloves/kaza_ruk/combatglovesplus,
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/bmp_asteroid/level_three)
 "sI" = (
@@ -1177,10 +1170,6 @@
 /obj/structure/destructible/cult/pylon,
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/bmp_asteroid/level_four)
-"xs" = (
-/obj/item/bedsheet/patriot,
-/turf/open/misc/asteroid/basalt,
-/area/awaymission/caves/bmp_asteroid/level_four)
 "yg" = (
 /obj/structure/sign/warning/vacuum/directional/east{
 	name = "\improper LOW AIR AREA"
@@ -1193,7 +1182,6 @@
 /obj/item/gun/energy/laser/soul,
 /obj/item/slimepotion/fireproof,
 /obj/item/slimepotion/fireproof,
-/obj/item/clothing/glasses/thermal,
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
 /obj/item/gun/energy/e_gun/old,
@@ -1288,9 +1276,7 @@
 	amount = 25
 	},
 /obj/item/coin/antagtoken,
-/obj/item/book/granter/action/spell/summonitem{
-	name = "\proper an extremely flamboyant book"
-	},
+/obj/item/book/granter/action/spell/smoke,
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/bmp_asteroid/level_four)
 "DH" = (
@@ -1440,10 +1426,6 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/misc/asteroid/basalt,
 /area/awaymission/caves/bmp_asteroid/level_two)
-"OA" = (
-/obj/item/gun/ballistic/automatic/pistol/deagle/gold,
-/turf/open/misc/asteroid/basalt,
-/area/awaymission/caves/bmp_asteroid/level_four)
 "OX" = (
 /turf/closed/indestructible/oldshuttle{
 	desc = "Go through.";
@@ -1499,11 +1481,6 @@
 /obj/item/reagent_containers/blood/o_plus,
 /turf/open/floor/iron,
 /area/awaymission/caves/bmp_asteroid)
-"UT" = (
-/obj/effect/decal/remains/human,
-/obj/item/clothing/under/misc/patriotsuit,
-/turf/open/misc/asteroid/basalt,
-/area/awaymission/caves/bmp_asteroid/level_four)
 "VK" = (
 /obj/effect/mob_spawn/ghost_role/human/skeleton{
 	name = "spooky skeleton remains"
@@ -24816,8 +24793,8 @@ ad
 ad
 rv
 rv
-OA
-xs
+rv
+rv
 rv
 rv
 ad
@@ -25041,7 +25018,7 @@ ad
 ad
 rv
 rv
-UT
+Rm
 rv
 rv
 ad
@@ -36045,7 +36022,7 @@ ad
 rv
 rv
 rv
-aZ
+ao
 ao
 rv
 ad
