@@ -179,6 +179,7 @@ export function NameInput(props: NameInputProps) {
         </Stack.Item>
 
         {/* We only know other names when the server tells us */}
+        {/*
         {data?.names && (
           <Stack.Item>
             <Button
@@ -212,7 +213,7 @@ export function NameInput(props: NameInputProps) {
               />
             </Button>
           </Stack.Item>
-        )}
+        )}*/}
       </Stack>
     </Button>
   );

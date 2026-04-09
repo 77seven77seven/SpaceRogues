@@ -30,8 +30,7 @@
 		var/obj/item/clothing/glasses/shades = get_item_by_slot(ITEM_SLOT_EYES)
 		var/are_we_in_weekend_at_bernies = shades?.tint && buckled && istype(buckled, /obj/vehicle/ridden/wheelchair)
 
-		if(isliving(user) && (HAS_MIND_TRAIT(user, TRAIT_NAIVE) || are_we_in_weekend_at_bernies))
-			just_sleeping = TRUE
+		just_sleeping = TRUE
 
 		if(!just_sleeping)
 			// since this is relatively important and giving it space makes it easier to read
@@ -169,10 +168,8 @@
 	switch(apparent_blood_volume)
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 			. += span_warning("[t_He] [t_has] pale skin.")
-		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
+		if(-INFINITY to BLOOD_VOLUME_OKAY)
 			. += span_boldwarning("[t_He] look[p_s()] like pale death.")
-		if(-INFINITY to BLOOD_VOLUME_BAD)
-			. += span_deadsay("<b>[t_He] resemble[p_s()] a crushed, empty juice pouch.</b>")
 
 	if(is_bleeding())
 		var/list/obj/item/bodypart/bleeding_limbs = list()
@@ -219,7 +216,7 @@
 	var/mob/living/living_user = user
 	SEND_SIGNAL(living_user, COMSIG_CARBON_MID_EXAMINE, src, .) // Adds examine text after clothing and wounds but before death and scars
 	if(just_sleeping)
-		. += span_notice("[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be asleep.")
+		. += span_notice("[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be unconscious.")
 	else if(!appears_dead)
 		if(src != user)
 			if(HAS_TRAIT(user, TRAIT_SPIRITUAL) && mind?.holy_role && user != src)
@@ -228,7 +225,7 @@
 
 		switch(stat)
 			if(UNCONSCIOUS, HARD_CRIT)
-				. += span_notice("[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be asleep.")
+				. += span_notice("[t_He] [t_is]n't responding to anything around [t_him] and seem[p_s()] to be unconscious.")
 			if(SOFT_CRIT)
 				. += span_notice("[t_He] [t_is] barely conscious.")
 			if(CONSCIOUS)
