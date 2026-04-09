@@ -60,7 +60,7 @@
 /obj/effect/temp_visual/dir_setting/firing_effect
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "firing_effect"
-	duration = 3
+	duration = 2
 
 /obj/effect/temp_visual/dir_setting/firing_effect/Initialize(mapload, set_dir)
 	. = ..()
@@ -82,15 +82,10 @@
 			pixel_y = rand(-1,1)
 	..()
 
-/obj/effect/temp_visual/dir_setting/firing_effect/blue
+/obj/effect/temp_visual/dir_setting/firing_effect/energy
 	icon = 'icons/effects/effects.dmi'
-	icon_state = "firing_effect_blue"
-	duration = 3
-
-/obj/effect/temp_visual/dir_setting/firing_effect/red
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "firing_effect_red"
-	duration = 3
+	icon_state = "firing_effect_energy"
+	duration = 2
 
 /obj/effect/temp_visual/dir_setting/firing_effect/magic
 	icon_state = "shieldsparkles"
@@ -383,7 +378,7 @@
 
 /obj/effect/temp_visual/impact_effect/red_laser
 	icon_state = "impact_laser"
-	duration = 4
+	duration = 1
 
 /obj/effect/temp_visual/impact_effect/red_laser/wall
 	icon_state = "impact_laser_wall"
@@ -391,19 +386,19 @@
 
 /obj/effect/temp_visual/impact_effect/blue_laser
 	icon_state = "impact_laser_blue"
-	duration = 4
+	duration = 1
 
 /obj/effect/temp_visual/impact_effect/green_laser
 	icon_state = "impact_laser_green"
-	duration = 4
+	duration = 1
 
 /obj/effect/temp_visual/impact_effect/yellow_laser
 	icon_state = "impact_laser_yellow"
-	duration = 4
+	duration = 1
 
 /obj/effect/temp_visual/impact_effect/purple_laser
 	icon_state = "impact_laser_purple"
-	duration = 4
+	duration = 1
 
 /obj/effect/temp_visual/impact_effect/shrink
 	icon_state = "m_shield"

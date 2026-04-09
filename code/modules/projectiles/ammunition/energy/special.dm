@@ -2,7 +2,7 @@
 	projectile_type = /obj/projectile/ion
 	select_name = "ion"
 	fire_sound = 'sound/items/weapons/ionrifle.ogg'
-	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
 	muzzle_flash_color = LIGHT_COLOR_BLUE
 
 /obj/item/ammo_casing/energy/ion/hos
@@ -39,12 +39,12 @@
 	select_name = "freeze"
 	e_cost = LASER_SHOTS(40, STANDARD_CELL_CHARGE * 10)
 	fire_sound = 'sound/items/weapons/pulse3.ogg'
-	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
 
 /obj/item/ammo_casing/energy/temp/hot
 	projectile_type = /obj/projectile/temp/hot
 	select_name = "bake"
-	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/red
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
 
 /obj/item/ammo_casing/energy/meteor
 	projectile_type = /obj/projectile/meteor

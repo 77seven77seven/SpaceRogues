@@ -6,6 +6,7 @@
 	armor_flag = BULLET
 	hitsound_wall = SFX_RICOCHET
 	sharpness = SHARP_POINTY
+	hitscan = TRUE
 	impact_effect_type = /obj/effect/temp_visual/impact_effect
 	shrapnel_type = /obj/item/shrapnel/bullet
 	embed_type = /datum/embedding/bullet

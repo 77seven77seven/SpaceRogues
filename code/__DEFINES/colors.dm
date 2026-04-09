@@ -221,7 +221,7 @@
 #define COLOR_SAMPLE_GRAY "#5e5856"
 
 ///Colors for blood greyscale sprites
-#define BLOOD_COLOR_RED "#AA1010"
+#define BLOOD_COLOR_RED "#550707"
 #define BLOOD_COLOR_LIZARD "#035A00"
 #define BLOOD_COLOR_XENO "#96BB00"
 #define BLOOD_COLOR_OIL "#2C2C2C"

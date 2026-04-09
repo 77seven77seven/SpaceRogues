@@ -230,8 +230,8 @@
 		addtimer(CALLBACK(recoiled_mob, TYPE_PROC_REF(/mob, clear_fullscreen), "flash", 1 SECONDS), shake_dur)
 		return
 
-	animate(client_to_shake, pixel_x = oldx+mpx, pixel_y = oldy+mpy, time = duration, flags = ANIMATION_RELATIVE)
-	animate(pixel_x = oldx, pixel_y = oldy, time = backtime_duration, easing = BACK_EASING)
+	animate(client_to_shake, pixel_x = oldx+mpx, pixel_y = oldy+mpy, time = duration, flags = ANIMATION_RELATIVE, easing = ELASTIC_EASING)
+	animate(pixel_x = oldx, pixel_y = oldy, time = backtime_duration, easing = ELASTIC_EASING)
 
 ///Find if the message has the real name of any user mob in the mob_list
 /proc/findname(msg)

@@ -10,6 +10,7 @@
 	drop_sound = 'sound/items/handling/gun/gun_drop.ogg'
 	sound_vary = TRUE
 
+	recoil = 0.3
 	min_recoil = 0.1
 
 	///sound when inserting magazine

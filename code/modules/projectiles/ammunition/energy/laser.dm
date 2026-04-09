@@ -112,7 +112,7 @@
 	pellets = 3
 	variance = 15
 	harmful = FALSE
-	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
 
 /obj/item/ammo_casing/energy/laser/heavy
 	projectile_type = /obj/projectile/beam/laser/heavylaser
@@ -124,7 +124,7 @@
 	e_cost = LASER_SHOTS(200, STANDARD_CELL_CHARGE * 40)
 	select_name = "DESTROY"
 	fire_sound = 'sound/items/weapons/pulse.ogg'
-	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
 	muzzle_flash_color = LIGHT_COLOR_BLUE
 
 /obj/item/ammo_casing/energy/laser/bluetag
@@ -171,7 +171,7 @@
 /obj/item/ammo_casing/energy/nanite/cryo
 	projectile_type = /obj/projectile/energy/cryo
 	select_name = "cryo"
-	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/blue
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
 
 ///not exactly an energy ammo casing, but it's used by the laser gatling.
 /obj/item/ammo_casing/laser
@@ -183,7 +183,7 @@
 	slot_flags = null
 	projectile_type = /obj/projectile/beam
 	fire_sound = 'sound/items/weapons/laser.ogg'
-	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/red
+	firing_effect_type = /obj/effect/temp_visual/dir_setting/firing_effect/energy
 
 /obj/item/ammo_casing/laser/Initialize(mapload)
 	. = ..()
