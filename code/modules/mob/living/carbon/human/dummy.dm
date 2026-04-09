@@ -189,10 +189,6 @@ GLOBAL_LIST_EMPTY(dummy_mob_list)
 		var/mob/living/carbon/carbon_target = target
 		carbon_target.dna.copy_dna(copycat.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
 
-		if(ishuman(target))
-			var/mob/living/carbon/human/human_target = target
-			human_target.copy_clothing_prefs(copycat)
-
 		copycat.updateappearance(icon_update=TRUE, mutcolor_update=TRUE, mutations_overlay_update=TRUE)
 	else
 		//even if target isn't a carbon, if they have a client we can make the

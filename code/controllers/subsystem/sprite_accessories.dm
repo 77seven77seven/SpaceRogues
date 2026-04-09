@@ -64,6 +64,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	facial_hairstyles_male_list = facial_hair_lists[MALE_SPRITE_LIST]
 	facial_hairstyles_female_list = facial_hair_lists[FEMALE_SPRITE_LIST]
 
+	/*
 	var/underwear_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/clothing/underwear)
 	underwear_list = underwear_lists[DEFAULT_SPRITE_LIST]
 	underwear_m = underwear_lists[MALE_SPRITE_LIST]
@@ -75,6 +76,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	undershirt_f = undershirt_lists[FEMALE_SPRITE_LIST]
 
 	socks_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/clothing/socks)[DEFAULT_SPRITE_LIST]
+	*/
 
 	feature_list = list()
 	// felinids

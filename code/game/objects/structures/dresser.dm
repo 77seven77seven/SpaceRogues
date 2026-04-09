@@ -22,6 +22,7 @@
 
 /obj/structure/dresser/attack_hand(mob/user, list/modifiers)
 	. = ..()
+	/*
 	if(.)
 		return
 	if(!Adjacent(user))//no tele-grooming
@@ -59,3 +60,4 @@
 
 	add_fingerprint(dressing_human)
 	dressing_human.update_body()
+	*/

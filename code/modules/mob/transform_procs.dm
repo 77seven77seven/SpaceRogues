@@ -79,9 +79,6 @@
 	return src
 
 /mob/living/carbon/human/finish_humanize(species = /datum/species/human)
-	underwear = "Nude"
-	undershirt = "Nude"
-	socks = "Nude"
 	return ..()
 
 /mob/proc/AIize(client/preference_source, move = TRUE)

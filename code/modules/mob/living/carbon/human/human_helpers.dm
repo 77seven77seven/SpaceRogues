@@ -240,15 +240,6 @@
 	WRITE_FILE(F["scar[char_index]-[scar_index]"], sanitize_text(valid_scars))
 	WRITE_FILE(F["current_scar_index"], sanitize_integer(scar_index))
 
-///copies over clothing preferences like underwear to another human
-/mob/living/carbon/human/proc/copy_clothing_prefs(mob/living/carbon/human/destination)
-	destination.underwear = underwear
-	destination.underwear_color = underwear_color
-	destination.undershirt = undershirt
-	destination.socks = socks
-	destination.jumpsuit_style = jumpsuit_style
-
-
 /// Fully randomizes everything according to the given flags.
 /mob/living/carbon/human/proc/randomize_human_appearance(randomize_flags = ALL)
 	var/datum/preferences/preferences = new(new /datum/client_interface)
@@ -309,7 +300,6 @@
 	var/mob/living/carbon/human/clone = new(location)
 
 	clone.fully_replace_character_name(null, dna.real_name)
-	copy_clothing_prefs(clone)
 	clone.age = age
 	clone.voice = voice
 	clone.pitch = pitch

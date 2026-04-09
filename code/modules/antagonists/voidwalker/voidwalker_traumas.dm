@@ -52,13 +52,6 @@
 		var/mob/living/carbon/human/human = owner
 		human.physiology.brute_mod *= brute_mod
 
-	//your underwear is belong to us
-	if(ishuman(owner))
-		var/mob/living/carbon/human/human = owner //CARBON WILL NEVER BE REAL!!!!!
-		human.underwear = "Nude"
-		human.undershirt = "Nude"
-		human.socks = "Nude"
-
 	owner.update_body()
 
 /datum/brain_trauma/voided/on_lose()
