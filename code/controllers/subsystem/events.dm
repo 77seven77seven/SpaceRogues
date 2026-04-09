@@ -184,9 +184,8 @@ GLOBAL_LIST(holidays)
  * Fills the holidays list if applicable, or leaves it an empty list.
  */
 /proc/fill_holidays()
-	if(!CONFIG_GET(flag/allow_holidays))
-		return FALSE // Holiday stuff was not enabled in the config!
-
+	return FALSE
+/*
 	GLOB.holidays = list()
 	for(var/holiday_type in subtypesof(/datum/holiday))
 		var/datum/holiday/holiday = new holiday_type()
@@ -214,3 +213,4 @@ GLOBAL_LIST(holidays)
 		world.update_status()
 
 	return TRUE
+*/
