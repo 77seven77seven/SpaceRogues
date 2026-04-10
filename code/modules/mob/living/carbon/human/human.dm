@@ -513,9 +513,11 @@
 		if (DOING_INTERACTION_WITH_TARGET(src,target))
 			return FALSE
 
+		/*
 		if (target.stat == DEAD || HAS_TRAIT(target, TRAIT_FAKEDEATH))
 			balloon_alert(src, "[target.p_they()] [target.p_are()] dead!")
 			return FALSE
+		*/
 
 		if (is_mouth_covered())
 			balloon_alert(src, "remove your mask first!")
@@ -525,16 +527,9 @@
 			balloon_alert(src, "remove [target.p_their()] mask first!")
 			return FALSE
 
-		if(HAS_TRAIT_FROM(src, TRAIT_NOBREATH, DISEASE_TRAIT))
-			to_chat(src, span_warning("you can't breathe!"))
-			return FALSE
-
 		var/obj/item/organ/lungs/human_lungs = get_organ_slot(ORGAN_SLOT_LUNGS)
-		if(isnull(human_lungs))
-			balloon_alert(src, "you don't have lungs!")
-			return FALSE
-		if(human_lungs.organ_flags & ORGAN_FAILING)
-			balloon_alert(src, "your lungs are too damaged!")
+		if(HAS_TRAIT_FROM(src, TRAIT_NOBREATH, DISEASE_TRAIT) || isnull(human_lungs) || (human_lungs.organ_flags & ORGAN_FAILING))
+			to_chat(src, span_warning("you can't breathe!"))
 			return FALSE
 
 		visible_message(span_notice("[src] is trying to perform CPR on [target.name]!"), \
@@ -562,7 +557,7 @@
 			target.adjust_oxy_loss(-min(target.get_oxy_loss(), 7))
 			to_chat(target, span_unconscious("You feel a breath of fresh air enter your lungs... It feels good..."))
 
-		if (target.health <= target.crit_threshold)
+		if (target.health <= target.crit_threshold || target.stat == DEAD || HAS_TRAIT(target, TRAIT_FAKEDEATH))
 			if (!panicking)
 				to_chat(src, span_warning("[target] still isn't up! You try harder!"))
 			panicking = TRUE
