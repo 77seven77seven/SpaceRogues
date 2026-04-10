@@ -27,8 +27,10 @@ SUBSYSTEM_DEF(radioactive_nebula)
 		return SS_INIT_NO_NEED
 
 	// We don't *really* care that this happens by the time the server is ready to play.
+	/*
 	ASYNC
 		irradiate_everything()
+	*/
 
 	// Don't leak that the station trait has been picked
 	return SS_INIT_NO_MESSAGE
@@ -59,7 +61,7 @@ SUBSYSTEM_DEF(radioactive_nebula)
 		target.add_filter(GLOW_NEBULA, 2, list("type" = "drop_shadow", "color" = radioactive_nebula.nebula_radglow, "size" = 2))
 
 /datum/controller/subsystem/radioactive_nebula/fire()
-	irradiate_everything()
+	//irradiate_everything()
 
 /// Loop through radioactive space (with lag checks) and make it all radioactive!
 /datum/controller/subsystem/radioactive_nebula/proc/irradiate_everything()

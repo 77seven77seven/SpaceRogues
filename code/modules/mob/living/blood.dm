@@ -1,4 +1,4 @@
-#define BLOOD_DRIP_RATE_MOD 90 //Greater number means creating blood drips more often while bleeding
+#define BLOOD_DRIP_RATE_MOD 130 //Greater number means creating blood drips more often while bleeding
 // Conversion between internal drunk power and common blood alcohol content
 #define DRUNK_POWER_TO_BLOOD_ALCOHOL 0.003
 
