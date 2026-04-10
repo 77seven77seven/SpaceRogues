@@ -33,7 +33,7 @@
 
 	ADD_TRAIT(parent, TRAIT_IRRADIATED, REF(src))
 
-	create_glow()
+	//create_glow()
 
 	beginning_of_irradiation = world.time
 
@@ -46,7 +46,7 @@
 
 		start_burn_splotch_timer()
 
-		human_parent.throw_alert(ALERT_IRRADIATED, /atom/movable/screen/alert/irradiated)
+		//human_parent.throw_alert(ALERT_IRRADIATED, /atom/movable/screen/alert/irradiated)
 
 /datum/component/irradiated/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(on_clean))

@@ -44,7 +44,7 @@
 	var/exception_max = INFINITY
 
 	/// Determines whether we play a rustle animation when inserting/removing items.
-	var/animated = TRUE
+	var/animated = FALSE
 	/// Determines whether we play a rustle sound when inserting/removing items.
 	var/do_rustle = TRUE
 	var/rustle_vary = TRUE

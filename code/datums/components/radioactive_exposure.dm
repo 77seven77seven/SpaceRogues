@@ -39,8 +39,8 @@
 
 	RegisterSignal(parent, COMSIG_MOVABLE_EXITED_AREA, PROC_REF(on_exited))
 
-	var/mob/living/living_parent = parent
-	living_parent.throw_alert(ALERT_RADIOACTIVE_AREA, /atom/movable/screen/alert/radioactive_area)
+	//var/mob/living/living_parent = parent
+	//living_parent.throw_alert(ALERT_RADIOACTIVE_AREA, /atom/movable/screen/alert/radioactive_area)
 
 /// Try and irradiate them. If we chance fail, we come back harder
 /datum/component/radioactive_exposure/proc/attempt_irradiate()
@@ -72,8 +72,10 @@
 
 	return ..()
 
+/*
 /atom/movable/screen/alert/radioactive_area
 	name = "Radioactive Area"
 	desc = "This place is no good! We need to get some protection or get out fast!"
 	use_user_hud_icon = USER_HUD_STYLE_INHERIT
 	overlay_state = "radioactive_area"
+*/

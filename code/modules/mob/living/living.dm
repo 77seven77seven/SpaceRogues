@@ -425,10 +425,11 @@
 		if(!supress_message && !(iscarbon(AM) && HAS_TRAIT(src, TRAIT_STRONG_GRABBER)))
 			if(ishuman(M))
 				var/mob/living/carbon/human/grabbed_human = M
-				var/grabbed_by_hands = (zone_selected == "l_arm" || zone_selected == "r_arm") && grabbed_human.usable_hands > 0
-				M.visible_message(span_warning("[src] grabs [M] [grabbed_by_hands ? "by their hands":"passively"]!"), \
-								span_warning("[src] grabs you [grabbed_by_hands ? "by your hands":"passively"]!"), null, null, src)
-				to_chat(src, span_notice("You grab [M] [grabbed_by_hands ? "by their hands":"passively"]!"))
+				//var/grabbed_by_hands = (zone_selected == "l_arm" || zone_selected == "r_arm") && grabbed_human.usable_hands > 0
+				var/grabbed_by_hands = grabbed_human.usable_hands > 0
+				M.visible_message(span_notice("[src] grabs [M] [grabbed_by_hands ? "by their wrist":"passively"]..."), \
+								span_warning("[src] grabs you [grabbed_by_hands ? "by your wrist":"passively"]."), null, null, src)
+				to_chat(src, span_notice("You grab [M] [grabbed_by_hands ? "by their wrist":"passively"]."))
 				grabbed_human.share_blood_on_touch(src, grabbed_by_hands ? ITEM_SLOT_GLOVES : ITEM_SLOT_ICLOTHING|ITEM_SLOT_OCLOTHING)
 			else
 				M.visible_message(span_warning("[src] grabs [M] passively!"), \

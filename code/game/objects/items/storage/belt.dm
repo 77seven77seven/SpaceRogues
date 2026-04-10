@@ -594,7 +594,6 @@
 	w_class = WEIGHT_CLASS_BULKY
 	interaction_flags_click = parent_type::interaction_flags_click | NEED_DEXTERITY | NEED_HANDS
 	var/stored_blade
-	actions_types = list(/datum/action/innate/blade_counter)
 	action_slots = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
 	COOLDOWN_DECLARE(resheath_cooldown)
 	COOLDOWN_DECLARE(full_ability_cooldown)
@@ -614,6 +613,16 @@
 		. += span_notice("Alt-click it to quickly draw the blade.")
 
 /obj/item/storage/belt/sheath/click_alt(mob/user)
+	if(!length(contents))
+		balloon_alert(user, "it's empty!")
+		return CLICK_ACTION_BLOCKING
+	var/obj/item/stored_item = contents[1]
+	user.visible_message(span_notice("[user] takes [stored_item] out of [src]."), span_notice("You take [stored_item] out of [src]."))
+	user.put_in_hands(stored_item)
+	update_appearance()
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/storage/belt/sheath/attack_hand_secondary(mob/user, list/modifiers)
 	if(!length(contents))
 		balloon_alert(user, "it's empty!")
 		return CLICK_ACTION_BLOCKING
