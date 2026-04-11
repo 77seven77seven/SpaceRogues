@@ -8,6 +8,23 @@
 	ambient_buzz = 'sound/ambience/maintenance/source_corridor2.ogg'
 	ambient_buzz_vol = 20
 
+/area/station/maintenance/Initialize(mapload)
+	. = ..()
+	overlays += mutable_appearance('icons/effects/cameravis.dmi', alpha = 50)
+	overlays += new/obj/effect/abstract/particle_holder(src, /particles/dust)
+
+/particles/dust
+	width = 124
+	height = 124
+	count = 256
+	spawning = 999999 //spawn all instantly
+	lifespan = 0.75 SECONDS
+	fade = 0.35 SECONDS
+	position = generator("box", list(-16, -16), list(16, 16), NORMAL_RAND)
+	velocity = generator("circle", -8, 8, NORMAL_RAND)
+	friction = 0.125
+	color = "#660000"
+
 /*
 * Departmental Maintenance
 */

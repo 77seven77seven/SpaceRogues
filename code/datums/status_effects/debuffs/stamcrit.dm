@@ -36,6 +36,8 @@
 	if(!.)
 		return .
 
+	owner.move_intent = MOVE_INTENT_WALK
+
 	if(owner.stat == CONSCIOUS)
 		to_chat(owner, span_notice("You're too exhausted to keep going..."))
 	owner.add_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_FLOORED), STAMINA)
