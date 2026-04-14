@@ -46,19 +46,24 @@
 	if((machine_stat & (BROKEN|MAINT)) || update_state)
 		return
 
-	. += mutable_appearance(icon, "apcox-[locked]")
-	. += emissive_appearance(icon, "apcox-[locked]", src)
-	. += mutable_appearance(icon, "apco3-[charging]")
-	. += emissive_appearance(icon, "apco3-[charging]", src)
-	if(!operating)
-		return
+	var/list/mutable_appearance/appearances = list()
 
-	. += mutable_appearance(icon, "apco0-[equipment]")
-	. += emissive_appearance(icon, "apco0-[equipment]", src)
-	. += mutable_appearance(icon, "apco1-[lighting]")
-	. += emissive_appearance(icon, "apco1-[lighting]", src)
-	. += mutable_appearance(icon, "apco2-[environ]")
-	. += emissive_appearance(icon, "apco2-[environ]", src)
+	appearances += mutable_appearance(icon, "apcox-[locked]")
+	appearances += emissive_appearance(icon, "apcox-[locked]", src)
+	appearances += mutable_appearance(icon, "apco3-[charging]")
+	appearances += emissive_appearance(icon, "apco3-[charging]", src)
+
+	if(operating)
+		appearances += mutable_appearance(icon, "apco0-[equipment]")
+		appearances += emissive_appearance(icon, "apco0-[equipment]", src)
+		appearances += mutable_appearance(icon, "apco1-[lighting]")
+		appearances += emissive_appearance(icon, "apco1-[lighting]", src)
+		appearances += mutable_appearance(icon, "apco2-[environ]")
+		appearances += emissive_appearance(icon, "apco2-[environ]", src)
+
+	for(var/mutable_appearance/M in appearances)
+		M.filters += filter(type="bloom", size=6, offset = 0.5, alpha = 220)
+		. += M
 
 /// Checks for what icon updates we will need to handle
 /obj/machinery/power/apc/proc/check_updates()

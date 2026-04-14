@@ -188,20 +188,21 @@
 	if(!on || status != LIGHT_OK)
 		return
 
-	. += emissive_appearance(overlay_icon, "[base_state]", src, alpha = src.alpha)
+	var/mutable_appearance/MA = emissive_appearance(overlay_icon, "[base_state]", src, alpha = src.alpha)
+	MA.filters = filter(type="bloom", size=6, offset = 0.5, alpha = 220)
+	. += MA
 
 	var/area/local_area = get_room_area()
 
+	var/mutable_appearance/M2A = mutable_appearance(overlay_icon, base_state)
 	if(flickering)
-		. += mutable_appearance(overlay_icon, "[base_state]_flickering")
-		return
-	if(low_power_mode || major_emergency || (local_area?.fire))
-		. += mutable_appearance(overlay_icon, "[base_state]_emergency")
-		return
-	if(nightshift_enabled)
-		. += mutable_appearance(overlay_icon, "[base_state]_nightshift")
-		return
-	. += mutable_appearance(overlay_icon, base_state)
+		M2A = mutable_appearance(overlay_icon, "[base_state]_flickering")
+	else if(low_power_mode || major_emergency || (local_area?.fire))
+		M2A = mutable_appearance(overlay_icon, "[base_state]_emergency")
+	else if(nightshift_enabled)
+		M2A = mutable_appearance(overlay_icon, "[base_state]_nightshift")
+	M2A.filters = filter(type="bloom", size=6, offset = 0.5, alpha = 220)
+	. += M2A
 
 // Area sensitivity is traditionally tied directly to power use, as an optimization
 // But since we want it for fire reacting, we disregard that
