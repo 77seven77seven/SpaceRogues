@@ -60,7 +60,7 @@
 		return
 	remove_filter("AO")
 	if(istype(mymob) && mymob.canon_client?.prefs?.read_preference(/datum/preference/toggle/ambient_occlusion))
-		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
+		add_filter("AO", 1, drop_shadow_filter(x = 3, y = -3, size = 10, color = "#000000aa"))
 
 /atom/movable/screen/plane_master/rendering_plate/unlit_game_plate
 	name = "Unlit Game rendering plate"

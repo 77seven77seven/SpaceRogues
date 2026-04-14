@@ -61,7 +61,7 @@
 
 	if(alert_type)
 		var/atom/movable/screen/alert/status_effect/new_alert = owner.throw_alert(id, alert_type)
-		new_alert.attached_effect = src //so the alert can reference us, if it needs to
+		new_alert?.attached_effect = src //so the alert can reference us, if it needs to
 		linked_alert = new_alert //so we can reference the alert, if we need to
 		update_shown_duration()
 

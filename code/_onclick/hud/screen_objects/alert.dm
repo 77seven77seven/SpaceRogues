@@ -13,7 +13,8 @@
  *override makes it so the alert is not replaced until cleared by a clear_alert with clear_override, and it's used for hallucinations.
  */
 /mob/proc/throw_alert(category, type, severity, atom/new_master, override = FALSE, timeout_override, no_anim = FALSE)
-
+	return // They don't look good.
+	/*
 	if(!category || QDELETED(src))
 		return
 
@@ -70,6 +71,7 @@
 		addtimer(CALLBACK(src, PROC_REF(alert_timeout), thealert, category), thealert.timeout)
 		thealert.timeout = world.time + thealert.timeout - world.tick_lag
 	return thealert
+	*/
 
 /mob/proc/alert_timeout(atom/movable/screen/alert/alert, category)
 	if(alert.timeout && alerts[category] == alert && world.time >= alert.timeout)
