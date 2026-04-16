@@ -64,12 +64,9 @@ export const sound_jukebox: Feature<number> = {
 };
 
 export const sound_tts: FeatureChoiced = {
-  name: 'Enable TTS',
+  name: 'Enable Blips',
   category: 'SOUND',
-  description: `
-    When enabled, be able to hear text-to-speech sounds in game.
-    When set to "Blips", text to speech will be replaced with blip sounds based on the voice.
-  `,
+  description: `When enabled, be able to hear blip sounds based on who's talking.`,
   component: FeatureDropdownInput,
 };
 

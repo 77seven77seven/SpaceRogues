@@ -121,7 +121,7 @@
 	. = ..()
 
 	if((direct & (direct - 1)) && mob.loc == new_loc) //moved diagonally successfully
-		add_delay = FLOOR(add_delay * sqrt(2), world.tick_lag)
+		add_delay = FLOOR(add_delay * 2, world.tick_lag)
 
 	var/after_glide = 0
 	if(visual_delay)
