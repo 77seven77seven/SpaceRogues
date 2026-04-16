@@ -17,12 +17,10 @@
 		if(prob(1))
 			return 'sound/mobs/humanoids/human/scream/wilhelm_scream.ogg'
 		return pick(
-			'sound/mobs/humanoids/human/scream/malescream_1.ogg',
-			'sound/mobs/humanoids/human/scream/malescream_2.ogg',
-			'sound/mobs/humanoids/human/scream/malescream_3.ogg',
-			'sound/mobs/humanoids/human/scream/malescream_4.ogg',
-			'sound/mobs/humanoids/human/scream/malescream_5.ogg',
-			'sound/mobs/humanoids/human/scream/malescream_6.ogg',
+			'sound/mobs/humanoids/human/scream/male_scream1.ogg',
+			'sound/mobs/humanoids/human/scream/male_scream2.ogg',
+			'sound/mobs/humanoids/human/scream/male_scream3.ogg',
+			'sound/mobs/humanoids/human/scream/male_scream4.ogg',
 		)
 
 	return pick(

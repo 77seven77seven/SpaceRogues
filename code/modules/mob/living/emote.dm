@@ -220,6 +220,10 @@
 	return pick(
 		'sound/mobs/humanoids/human/gasp/gasp_male1.ogg',
 		'sound/mobs/humanoids/human/gasp/gasp_male2.ogg',
+		'sound/mobs/humanoids/human/gasp/gasp_male3.ogg',
+		'sound/mobs/humanoids/human/gasp/gasp_male4.ogg',
+		'sound/mobs/humanoids/human/gasp/gasp_male5.ogg',
+		'sound/mobs/humanoids/human/gasp/gasp_male6.ogg',
 		)
 
 /datum/emote/living/gasp/shock
@@ -826,3 +830,25 @@
 
 /datum/emote/living/carbon/whistle/get_sound(mob/living/user)
 	return 'sound/mobs/humanoids/human/whistle/whistle1.ogg'
+
+/datum/emote/living/carbon/hem
+	key = "hem"
+	key_third_person = "hems"
+	message = "hems."
+	vary = FALSE
+	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/carbon/hem/get_sound(mob/living/user)
+	if(HAS_MIND_TRAIT(user, TRAIT_MIMING))
+		return
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/human_user = user
+	if(human_user.physique == FEMALE)
+		return pick(
+			'sound/mobs/humanoids/human/hem/hem_female.ogg',
+			)
+	return pick(
+		'sound/mobs/humanoids/human/hem/hem_male.ogg',
+		)

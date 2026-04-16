@@ -56,11 +56,10 @@
 	)
 	/// Male screams
 	var/static/list/male_screams = list(
-		'sound/mobs/humanoids/human/scream/malescream_1.ogg',
-		'sound/mobs/humanoids/human/scream/malescream_2.ogg',
-		'sound/mobs/humanoids/human/scream/malescream_3.ogg',
-		'sound/mobs/humanoids/human/scream/malescream_4.ogg',
-		'sound/mobs/humanoids/human/scream/malescream_5.ogg',
+		'sound/mobs/humanoids/human/scream/male_scream1.ogg',
+		'sound/mobs/humanoids/human/scream/male_scream2.ogg',
+		'sound/mobs/humanoids/human/scream/male_scream3.ogg',
+		'sound/mobs/humanoids/human/scream/male_scream4.ogg',
 	)
 	/// Female screams
 	var/static/list/female_screams = list(

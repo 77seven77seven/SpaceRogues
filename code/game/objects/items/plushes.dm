@@ -769,7 +769,7 @@
 	attack_verb_continuous = list("screams at", "strikes", "bashes")
 	attack_verb_simple = list("scream at", "strike", "bash")
 	squeak_override = list(
-		'sound/mobs/humanoids/human/scream/malescream_2.ogg' = 10, //10% chance to scream, rare but not abysmal
+		'sound/mobs/humanoids/human/scream/male_scream2.ogg' = 10, //10% chance to scream, rare but not abysmal
 		'sound/items/weapons/smash.ogg' = 90,
 		)
 

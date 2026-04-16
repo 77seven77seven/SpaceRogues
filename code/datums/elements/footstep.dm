@@ -80,7 +80,7 @@
 		return
 
 	if(iscarbon(source) && source.move_intent == MOVE_INTENT_WALK)
-		return // stealth
+		volume = 0.3 // stealth
 
 	steps_for_living[source] += 1
 	var/steps = steps_for_living[source]

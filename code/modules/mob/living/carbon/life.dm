@@ -92,7 +92,7 @@
 	//Suffocate
 	if(losebreath >= 1) //You've missed a breath, take oxy damage
 		losebreath--
-		if(prob(10))
+		if(prob(35))
 			emote("gasp")
 		if(isobj(loc))
 			var/obj/loc_as_obj = loc
@@ -407,7 +407,7 @@
 	// Mob is suffocating.
 	failed_last_breath = TRUE
 	// Give them a chance to notice something is wrong.
-	if(prob(20))
+	if(prob(50))
 		emote("gasp")
 	// Mob is at critical health, check if they can be damaged further.
 	if(health < crit_threshold)

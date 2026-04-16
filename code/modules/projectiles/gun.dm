@@ -92,7 +92,7 @@
 	///a multiplier of the duration the recoil takes to go back to normal view, this is (recoil*recoil_backtime_multiplier)+1
 	var/recoil_backtime_multiplier = 1.5
 	///this is how much deviation the gun recoil can have, recoil pushes the screen towards the reverse angle you shot + some deviation which this is the max.
-	var/recoil_deviation = 20
+	var/recoil_deviation = 2
 	/// Used as the min value when calculating recoil
 	/// Affected by a player's min_recoil_multiplier preference, so keep in mind it can ultimately be 0 regardless
 	/// Often utilized as a "purely visual" form of recoil (as it can be disabled)
