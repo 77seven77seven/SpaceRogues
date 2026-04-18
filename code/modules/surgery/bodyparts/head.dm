@@ -216,10 +216,31 @@
 	update_limb()
 	update_icon_dropped()
 
+/obj/item/bodypart/head/receive_damage(brute, burn, blocked, updating_health, forced, required_bodytype, wound_bonus, exposed_wound_bonus, sharpness, attack_direction, damage_source, wound_clothing)
+	. = ..()
+	var/wounding_type = (brute > burn ? WOUND_BLUNT : WOUND_BURN)
+
+	if(wounding_type == WOUND_BLUNT && sharpness)
+		if(sharpness & SHARP_EDGED)
+			wounding_type = WOUND_SLASH
+		else if (sharpness & SHARP_POINTY)
+			wounding_type = WOUND_PIERCE
+
+	if(wounding_type != WOUND_BLUNT)
+		return
+
+	if(isitem(damage_source))
+		var/obj/item/I = damage_source
+		if(prob(I.force))
+			// * (hit_zone == BP_MOUTH ? 6 : 1))
+			if(knock_out_teeth(attack_direction, rand(1,5)))
+				owner.visible_message("<span class='danger'>[owner]'s teeth sail off in an arc!</span>", \
+								"<span class='userdanger'>[owner]'s teeth sail off in an arc!</span>")
+
 /obj/item/bodypart/head/proc/knock_out_teeth(throw_dir, num=24)
-	num = CLAMP(num, 1, teeth.amount)
+	num = clamp(num, 1, teeth.amount)
 	var/done = FALSE
-	if(teeth && !teeth.is_zero_amount()) //We still have teeth
+	if(teeth) //We still have teeth
 		for(var/d = 1 to num) //Random amount of teeth
 			var/obj/item/stack/teeth/toth = teeth.split_stack(1)
 			if(!toth)
@@ -227,7 +248,7 @@
 			toth.forceMove(get_turf(owner))
 			toth.add_mob_blood(owner)
 
-			//playsound(get_turf(owner), "wetbreak", 100, TRUE, -5)
+			playsound(get_turf(owner), pick('sound/effects/wounds/crack2.ogg','sound/effects/wounds/crack1.ogg'), 100, TRUE, 2)
 
 			var/turf/target = get_turf(owner.loc)
 			var/range = rand(1, 3)
