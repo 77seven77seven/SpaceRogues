@@ -415,7 +415,7 @@
 /// If damage is high enough, we may end up vomiting out whatever we had stored
 /obj/item/organ/stomach/proc/on_punched(datum/source, mob/living/carbon/human/attacker, damage, attack_type, obj/item/bodypart/affecting, final_armor_block, kicking, limb_sharpness)
 	SIGNAL_HANDLER
-	if (!LAZYLEN(stomach_contents) || damage < 9 || final_armor_block || kicking)
+	if (!LAZYLEN(stomach_contents) || damage < 9 || final_armor_block || kicking || affecting != /obj/item/bodypart/chest)
 		return
 	if (owner.vomit(MOB_VOMIT_MESSAGE | MOB_VOMIT_FORCE))
 		// Since we vomited with a force flag, we should've vomited out at least one item

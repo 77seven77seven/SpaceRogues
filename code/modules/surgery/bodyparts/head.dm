@@ -77,6 +77,7 @@
 
 	/// How many teeth the head's species has, humans have 32 so that's the default. Used for a limit to dental pill implants.
 	var/teeth_count = 32
+	var/obj/item/stack/teeth/teeth
 
 	/// Offset to apply to equipment worn on the ears
 	var/datum/worn_feature_offset/worn_ears_offset
@@ -97,10 +98,15 @@
 		show_eyeless = FALSE
 
 		/// Can this head be dismembered normally?
-		can_dismember = FALSE
+		can_dismember = TRUE
 
 /obj/item/bodypart/head/Initialize(mapload)
 	. = ..()
+	if(teeth_count)
+		teeth = new(src)
+		teeth.amount = teeth_count
+		teeth.max_amount = teeth_count
+
 	AddElement(/datum/element/toy_talk)
 	RegisterSignals(src, list(SIGNAL_ADDTRAIT(TRAIT_DISFIGURED), SIGNAL_REMOVETRAIT(TRAIT_DISFIGURED)), PROC_REF(update_owner_name))
 
@@ -156,6 +162,12 @@
 	if(!(locate(/obj/item/organ/tongue) in src))
 		. += span_info("[shown_name]'s tongue has been removed.")
 
+	var/obj/item/stack/teeth/T = locate(/obj/item/stack/teeth) in src
+	if(T)
+		. += span_info("[shown_name] has [T.amount] teeth inside it.")
+	else
+		. += span_info("[shown_name] has all of their teeth removed.")
+
 /obj/item/bodypart/head/proc/get_face_name()
 	if (HAS_TRAIT(src, TRAIT_DISFIGURED))
 		return "Unknown"
@@ -203,6 +215,78 @@
 /obj/item/bodypart/head/proc/update_head_on_organ_movement()
 	update_limb()
 	update_icon_dropped()
+
+/obj/item/bodypart/head/proc/knock_out_teeth(throw_dir, num=24)
+	num = CLAMP(num, 1, teeth.amount)
+	var/done = FALSE
+	if(teeth && !teeth.is_zero_amount()) //We still have teeth
+		for(var/d = 1 to num) //Random amount of teeth
+			var/obj/item/stack/teeth/toth = teeth.split_stack(1)
+			if(!toth)
+				return done
+			toth.forceMove(get_turf(owner))
+			toth.add_mob_blood(owner)
+
+			//playsound(get_turf(owner), "wetbreak", 100, TRUE, -5)
+
+			var/turf/target = get_turf(owner.loc)
+			var/range = rand(1, 3)
+			for(var/i = 1; i < range; i++)
+				var/turf/new_turf = get_step(target, throw_dir)
+				target = new_turf
+				if(new_turf.density)
+					break
+			toth.throw_at(get_edge_target_turf(toth,pick(GLOB.alldirs)),rand(1,3),30)
+			toth.loc.add_mob_blood(owner)
+			toth.do_knock_out_animation()
+
+			toth.is_zero_amount()
+			done = TRUE
+	return done
+
+/obj/item/stack/teeth
+	name = "teeth"
+	singular_name = "tooth"
+	icon = 'icons/obj/medical/organs/organs.dmi'
+	icon_state = "tooth_1"
+	max_amount = 32
+	force = 0
+	w_class = WEIGHT_CLASS_TINY
+
+	var/list/image_list = list() // List of generated teeth icons for object overlay.
+
+/obj/item/stack/teeth/New()
+	..()
+	update_icon()
+	icon_state = "tooth_[rand(1,4)]"
+
+/obj/item/stack/teeth/add(_amount)
+	. = ..()
+	update_icon()
+
+/obj/item/stack/teeth/update_icon()
+	. = ..()
+	overlays.Cut()
+	image_list.Cut()
+	for(var/i = 1 to src.amount)
+		var/image/I = image('icons/obj/medical/organs/organs.dmi',"tooth_[rand(1,4)]")
+		I.appearance_flags = PIXEL_SCALE
+		I.pixel_x = rand(-8,8)
+		I.pixel_y = rand(-8,8)
+		var/matrix/M = matrix()
+		M.Turn(rand(0,360))
+		I.transform = M
+		image_list += I
+
+	src.overlays = image_list
+
+/obj/item/stack/teeth/proc/do_knock_out_animation(shrink_time = 2)
+	for(var/image/I in image_list)
+		shrink_time = rand(1, shrink_time)
+		var/old_transform = matrix(I.transform)
+		I.transform = I.transform.Scale(2, 2)
+		I.transform = I.transform.Turn(rand(0, 360))
+		animate(I, transform = old_transform, time = shrink_time)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
