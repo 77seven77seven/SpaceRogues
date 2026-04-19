@@ -22,7 +22,7 @@
 
 /datum/wound/pierce/bleed
 	name = "Piercing Wound"
-	sound_effect = 'sound/items/weapons/slice.ogg'
+	sound_effect = list('sound/effects/wounds/pierce1.ogg','sound/effects/wounds/pierce2.ogg','sound/effects/wounds/pierce3.ogg','sound/effects/wounds/pierce4.ogg','sound/effects/wounds/pierce5.ogg')
 	processes = TRUE
 	treatable_tools = list(TOOL_CAUTERY)
 	base_treat_time = 3 SECONDS
@@ -200,7 +200,6 @@
 	treat_text_short = "Apply bandaging or suturing."
 	examine_desc = "has a small, torn hole, gently bleeding"
 	occur_text = "spurts out a thin stream of blood"
-	sound_effect = 'sound/effects/wounds/pierce1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 1.25
 	gauzed_clot_rate = 0.75
@@ -279,7 +278,6 @@
 	treat_text_short = "Apply bandaging, suturing, clotting agents, or cauterization."
 	examine_desc = "is pierced clear through, with bits of tissue obscuring the open hole"
 	occur_text = "looses a violent spray of blood, revealing a pierced wound"
-	sound_effect = 'sound/effects/wounds/pierce2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 2
 	gauzed_clot_rate = 0.5
@@ -392,7 +390,6 @@
 	treat_text_short = "Apply bandaging, suturing, clotting agents, or cauterization."
 	examine_desc = "is ripped clear through, barely held together by exposed bone"
 	occur_text = "blasts apart, sending chunks of viscera flying in all directions"
-	sound_effect = 'sound/effects/wounds/pierce3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 2.5
 	gauzed_clot_rate = 0.3

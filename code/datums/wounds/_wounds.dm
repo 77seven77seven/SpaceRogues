@@ -178,6 +178,10 @@
 /datum/wound/proc/generate_unique_id()
 	return REF(src) // unique, cannot change, a perfect id
 
+/// Sound that plays when this wound is applied to a mob
+/datum/wound/proc/get_sound_effect(mob/living/affected, obj/item/bodypart/affected_bodypart)
+	return pick(sound_effect)
+
 /**
  * apply_wound() is used once a wound type is instantiated to assign it to a bodypart, and actually come into play.
  *
@@ -230,8 +234,8 @@
 			vis_dist = DEFAULT_MESSAGE_RANGE
 
 		victim.visible_message(msg, span_userdanger("Your [limb.plaintext_zone] [occur_text]!"), vision_distance = vis_dist)
-		if(sound_effect)
-			playsound(limb.owner, sound_effect, sound_volume + (20 * severity), TRUE, falloff_exponent = SOUND_FALLOFF_EXPONENT + 2,  ignore_walls = FALSE, falloff_distance = 0)
+		if(get_sound_effect())
+			playsound(limb.owner, get_sound_effect(limb.owner, limb), sound_volume + (20 * severity), TRUE, falloff_exponent = SOUND_FALLOFF_EXPONENT + 2,  ignore_walls = FALSE, falloff_distance = 0)
 
 	wound_injury(old_wound, attack_direction = attack_direction)
 	if(!demoted)

@@ -6,7 +6,7 @@
 /datum/wound/slash
 	name = "Slashing (Cut) Wound"
 	undiagnosed_name = "Cut"
-	sound_effect = 'sound/items/weapons/slice.ogg'
+	sound_effect = list('sound/effects/wounds/blood1.ogg','sound/effects/wounds/blood2.ogg','sound/effects/wounds/blood3.ogg')
 
 /datum/wound/slash/get_self_check_description(self_aware)
 	if(!limb.can_bleed())
@@ -302,7 +302,6 @@
 	treat_text_short = "Apply bandaging or suturing."
 	examine_desc = "has an open cut"
 	occur_text = "is cut open, slowly leaking blood"
-	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 1.75
 	minimum_flow = 0.5
@@ -334,7 +333,6 @@
 	treat_text_short = "Apply bandaging, suturing, clotting agents, or cauterization."
 	examine_desc = "has a severe cut"
 	occur_text = "is ripped open, veins spurting blood"
-	sound_effect = 'sound/effects/wounds/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 2.75
 	minimum_flow = 2
@@ -368,7 +366,6 @@
 	treat_text_short = "Apply bandaging, suturing, clotting agents, or cauterization."
 	examine_desc = "is carved down to the bone, spraying blood wildly"
 	occur_text = "is torn open, spraying blood wildly"
-	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 3.75
 	minimum_flow = 3.5
