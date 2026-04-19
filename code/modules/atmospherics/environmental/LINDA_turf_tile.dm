@@ -401,8 +401,8 @@
 	if(SEND_SIGNAL(src, COMSIG_ATOM_PRE_PRESSURE_PUSH) & COMSIG_ATOM_BLOCKS_PRESSURE)
 		return
 	var/const/PROBABILITY_OFFSET = 25
-	var/const/PROBABILITY_BASE_PRECENT = 90
-	var/max_force = pressure_difference * MOVE_FORCE_DEFAULT   // was /5 -> 2.5x stronger force
+	var/const/PROBABILITY_BASE_PRECENT = 75
+	var/max_force = sqrt(pressure_difference) * (MOVE_FORCE_DEFAULT / 4)
 
 	var/move_prob = 100
 	if (pressure_resistance > 0)
@@ -411,9 +411,9 @@
 
 	if (move_prob > PROBABILITY_OFFSET /* && prob(move_prob) */ && (move_resist != INFINITY) && (!anchored && (max_force >= (move_resist * MOVE_FORCE_PUSH_RATIO))) || (anchored && (max_force >= (move_resist * MOVE_FORCE_FORCEPUSH_RATIO))))
 		step(src, direction)
-		if (max_force > 90)  // only throw when it's really violent
+		if (max_force > 110)  // only throw when it's really violent
 			playsound(src, 'sound/effects/space_wind_violent.ogg', 50, TRUE, 5)
-			src.throw_at(get_edge_target_turf(src, direction), round(max_force / 20), 1)  // distance and speed scale with force
+			src.throw_at(get_edge_target_turf(src, direction), round(max_force / 40), 1)  // distance and speed scale with force
 		else
 			playsound(src, 'sound/effects/space_wind.ogg', 100, TRUE, 2)
 		last_high_pressure_movement_air_cycle = SSair.times_fired
