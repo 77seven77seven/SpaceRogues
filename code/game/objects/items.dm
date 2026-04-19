@@ -1587,7 +1587,9 @@
 	animate(src, alpha = old_alpha, pixel_x = old_x, pixel_y = old_y, transform = old_transform, time = 3, easing = CUBIC_EASING)
 
 /atom/movable/proc/do_item_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, animation_type)
-	if (!visual_effect_icon)
+	return  // I just don't like how it looks, okay?
+
+	/*if (!visual_effect_icon)
 		if (used_item)
 			used_item.animate_attack(src, attacked_atom, animation_type)
 		return
@@ -1603,6 +1605,7 @@
 	animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), time = 0.3 SECONDS)
 	animate(time = 0.1 SECONDS)
 	animate(alpha = 0, time = 0.3 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+	*/
 
 /obj/item/proc/animate_attack(atom/movable/attacker, atom/attacked_atom, animation_type)
 	var/list/image_override = list()

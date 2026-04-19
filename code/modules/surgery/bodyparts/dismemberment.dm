@@ -17,7 +17,13 @@
 	if(!silent)
 		limb_owner.visible_message(span_danger("<B>[limb_owner]'s [name] is violently dismembered!</B>"))
 	INVOKE_ASYNC(limb_owner, TYPE_PROC_REF(/mob, emote), "scream")
-	playsound(limb_owner, 'sound/effects/dismember.ogg', 80, TRUE)
+	playsound(limb_owner, pick(list(
+		'sound/effects/wounds/dismember/dismem (1).ogg',
+		'sound/effects/wounds/dismember/dismem (2).ogg',
+		'sound/effects/wounds/dismember/dismem (3).ogg',
+		'sound/effects/wounds/dismember/dismem (5).ogg',
+		'sound/effects/wounds/dismember/dismem (6).ogg'
+	)), 80, TRUE)
 	limb_owner.add_mood_event("dismembered_[body_zone]", /datum/mood_event/dismembered, src)
 	limb_owner.add_mob_memory(/datum/memory/was_dismembered, lost_limb = src)
 
@@ -39,8 +45,15 @@
 	if(dam_type == BURN)
 		burn()
 		return TRUE
-	if (can_bleed())
+
+	if (can_bleed()) // its not before dam_type == BRUTE because we want blood, it looks worse but ehh
 		limb_owner.bleed(rand(20, 40))
+
+	if(dam_type == BRUTE)
+		new /obj/effect/gibspawner/generic(get_turf(limb_owner), limb_owner)
+		drop_organs(limb_owner, TRUE)
+		qdel(src)
+		return TRUE
 
 	var/direction = pick(GLOB.cardinals)
 	var/t_range = rand(2,max(throw_range/2, 2))

@@ -246,7 +246,7 @@
 			if(!toth)
 				return done
 			toth.forceMove(get_turf(owner))
-			toth.add_mob_blood(owner)
+			toth?.add_mob_blood(owner)
 
 			playsound(get_turf(owner), pick('sound/effects/wounds/crack2.ogg','sound/effects/wounds/crack1.ogg'), 100, TRUE, 2)
 
@@ -257,11 +257,11 @@
 				target = new_turf
 				if(new_turf.density)
 					break
-			toth.throw_at(get_edge_target_turf(toth,pick(GLOB.alldirs)),rand(1,3),30)
-			toth.loc.add_mob_blood(owner)
-			toth.do_knock_out_animation()
+			toth?.throw_at(get_edge_target_turf(toth,pick(GLOB.alldirs)),rand(1,3),30)
+			toth?.loc?.add_mob_blood(owner)
+			toth?.do_knock_out_animation()
 
-			toth.is_zero_amount()
+			toth?.is_zero_amount()
 			done = TRUE
 	return done
 

@@ -31,7 +31,7 @@
 	ADD_KEEP_TOGETHER(as_item, type)
 	var/scale_factor_x = as_item.get_cached_width() / ICON_SIZE_X
 	var/scale_factor_y = as_item.get_cached_height() / ICON_SIZE_Y
-	var/mutable_appearance/blood_splatter = mutable_appearance('icons/effects/blood.dmi', "itemblood", appearance_flags = RESET_COLOR) //MA of the blood that we apply
+	var/mutable_appearance/blood_splatter = mutable_appearance('icons/effects/blood.dmi', "splatter[rand(1,6)]", appearance_flags = RESET_COLOR) //MA of the blood that we apply
 	blood_splatter.transform = blood_splatter.transform.Scale(scale_factor_x, scale_factor_y)
 	blood_splatter.blend_mode = BLEND_INSET_OVERLAY
 	blood_splatter.color = _color

@@ -38,7 +38,7 @@
 	threshold_penalty = 40
 
 	severity = WOUND_SEVERITY_CRITICAL
-	sound_effect = 'sound/effects/dismember.ogg'
+	sound_effect = list('sound/effects/wounds/fracture/headcrush (1).ogg', 'sound/effects/wounds/fracture/headcrush (2).ogg', 'sound/effects/wounds/fracture/headcrush (3).ogg', 'sound/effects/wounds/fracture/headcrush (4).ogg','sound/effects/wounds/fracture/headcrush (5).ogg','sound/effects/wounds/fracture/headcrush (6).ogg',)
 	surgery_states = SURGERY_SKIN_OPEN | SURGERY_BONE_SAWED // Literally a cracked open skull, no vessels as it... doesn't bleed?
 
 	/// If TRUE we have been prepped for surgery (to repair)

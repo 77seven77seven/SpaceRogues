@@ -35,8 +35,8 @@
 	var/self_msg
 
 	if(dismembered_part.body_zone == BODY_ZONE_CHEST)
-		occur_text = "is split open, causing [victim.p_their()] internal organs to spill out!"
-		self_msg = "is split open, causing your internal organs to spill out!"
+		occur_text = "is split open, causing [victim.p_their()] guts to spill out!"
+		self_msg = "is split open, causing your guts to spill out!"
 	else
 		occur_text = dismembered_part.get_dismember_message(wounding_type, outright)
 
@@ -61,7 +61,7 @@
 	if(outright)
 		switch(wounding_type)
 			if(WOUND_BLUNT)
-				occur_text = "is outright smashed to a gross pulp, severing it completely!"
+				occur_text = "is outright smashed to a gross pulp!!"
 			if(WOUND_SLASH)
 				occur_text = "is outright slashed off, severing it completely!"
 			if(WOUND_PIERCE)

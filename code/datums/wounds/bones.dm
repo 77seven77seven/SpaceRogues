@@ -175,26 +175,41 @@
 			if(1 to 6)
 				victim.bleed(blood_bled, TRUE)
 			if(7 to 13)
-				victim.visible_message(
-					span_smalldanger("A thin stream of blood drips from [victim]'s mouth from the blow to [victim.p_their()] chest."),
-					span_danger("You cough up a bit of blood from the blow to your chest."),
-					vision_distance = COMBAT_MESSAGE_RANGE,
-				)
+				if(victim.get_bodypart(BODY_ZONE_HEAD))
+					victim.visible_message(
+						span_smalldanger("A thin stream of blood drips from [victim]'s mouth from the blow to [victim.p_their()] chest."),
+						span_danger("You cough up a bit of blood from the blow to your chest."),
+						vision_distance = COMBAT_MESSAGE_RANGE,
+					)
 				victim.bleed(blood_bled, TRUE)
 			if(14 to 19)
-				victim.visible_message(
-					span_smalldanger("Blood spews out of [victim]'s mouth from the blow to [victim.p_their()] chest!"),
-					span_danger("You spit out a string of blood from the blow to your chest!"),
-					vision_distance = COMBAT_MESSAGE_RANGE,
-				)
+				if(victim.get_bodypart(BODY_ZONE_HEAD))
+					victim.visible_message(
+						span_smalldanger("Blood spews out of [victim]'s mouth from the blow to [victim.p_their()] chest!"),
+						span_danger("You spit out a string of blood from the blow to your chest!"),
+						vision_distance = COMBAT_MESSAGE_RANGE,
+					)
+				else
+					victim.visible_message(
+						span_danger("Blood spews out of [victim]'s throat from the blow to [victim.p_their()] chest!"),
+						span_bolddanger("You choke up on a spray of blood from the blow to your chest!"),
+						vision_distance = COMBAT_MESSAGE_RANGE,
+					)
 				victim.create_splatter(victim.dir)
 				victim.bleed(blood_bled)
 			if(20 to INFINITY)
-				victim.visible_message(
-					span_danger("Blood spurts out of [victim]'s mouth from the blow to [victim.p_their()] chest!"),
-					span_bolddanger("You choke up on a spray of blood from the blow to your chest!"),
-					vision_distance = COMBAT_MESSAGE_RANGE,
-				)
+				if(victim.get_bodypart(BODY_ZONE_HEAD))
+					victim.visible_message(
+						span_danger("Blood spurts out of [victim]'s mouth from the blow to [victim.p_their()] chest!"),
+						span_bolddanger("You choke up on a spray of blood from the blow to your chest!"),
+						vision_distance = COMBAT_MESSAGE_RANGE,
+					)
+				else
+					victim.visible_message(
+						span_danger("Blood spurts out of [victim]'s throat from the blow to [victim.p_their()] chest!"),
+						span_bolddanger("You choke up on a spray of blood from the blow to your chest!"),
+						vision_distance = COMBAT_MESSAGE_RANGE,
+					)
 				victim.bleed(blood_bled)
 				victim.create_splatter(victim.dir)
 				victim.add_splatter_floor(get_step(victim.loc, victim.dir))
@@ -242,6 +257,7 @@
 	series_threshold_penalty = 15
 	treatable_tools = list(TOOL_BONESET)
 	status_effect_type = /datum/status_effect/wound/blunt/bone/moderate
+	sound_effect = list('sound/effects/wounds/fracture/fracturedry (1).ogg', 'sound/effects/wounds/fracture/fracturedry (2).ogg', 'sound/effects/wounds/fracture/fracturedry (3).ogg',)
 	scar_keyword = "dislocate"
 
 	simple_desc = "Patient's bone has been dislocated, causing limping or reduced dexterity."
@@ -390,6 +406,7 @@
 	internal_bleeding_chance = 40
 	wound_flags = (ACCEPTS_GAUZE | MANGLES_INTERIOR)
 	regen_ticks_needed = 120 // ticks every 2 seconds, 240 seconds, so roughly 4 minutes default
+	sound_effect = list('sound/effects/wounds/fracture/fracturedry (1).ogg', 'sound/effects/wounds/fracture/fracturedry (2).ogg', 'sound/effects/wounds/fracture/fracturedry (3).ogg',)
 
 	simple_desc = "Patient's bone has cracked in the middle, drastically reducing limb functionality."
 	simple_treat_text = "<b>Bandaging</b> the wound will reduce its impact until <b>surgically treated</b> with bone gel and surgical tape."
@@ -420,7 +437,7 @@
 	interaction_efficiency_penalty = 2.5
 	limp_slowdown = 7
 	limp_chance = 70
-	sound_effect = 'sound/effects/wounds/crack2.ogg'
+	sound_effect = list('sound/effects/wounds/crack2.ogg', 'sound/effects/wounds/fracture/fracturewet (1).ogg', 'sound/effects/wounds/fracture/fracturewet (2).ogg', 'sound/effects/wounds/fracture/fracturewet (3).ogg',)
 	threshold_penalty = 15
 	disabling = TRUE
 	treatable_by = list(/obj/item/stack/medical/wrap/sticky_tape/surgical, /obj/item/stack/medical/bone_gel)
