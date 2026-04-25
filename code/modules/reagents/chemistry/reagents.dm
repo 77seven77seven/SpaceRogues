@@ -100,19 +100,6 @@
 	/// How we interact with random generators
 	var/randomized_spawns = REAGENT_SPAWN_NO_RANDOM
 
-	///Whether it will evaporate if left untouched on a liquids simulated puddle
-	var/evaporates = TRUE
-	///How much fire power does the liquid have, for burning on simulated liquids. Not enough fire power/unit of entire mixture may result in no fire
-	var/liquid_fire_power = 0
-	///How fast does the liquid burn on simulated turfs, if it does
-	var/liquid_fire_burnrate = 0
-	///Whether a fire from this requires oxygen in the atmosphere
-	var/fire_needs_oxygen = TRUE
-	///The opacity of the chems used to determine the alpha of liquid turfs
-	var/opacity = 175
-	///The rate of evaporation in units per call
-	var/evaporation_rate = 0.5
-
 /datum/reagent/New()
 	SHOULD_CALL_PARENT(TRUE)
 	. = ..()
