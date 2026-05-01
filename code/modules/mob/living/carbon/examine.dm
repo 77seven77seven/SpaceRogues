@@ -98,14 +98,14 @@
 	var/r_limbs_missing = 0
 	for(var/missing_limb in get_missing_limbs())
 		if(missing_limb == BODY_ZONE_HEAD)
-			. += span_deadsay("<B>[t_His] [parse_zone(missing_limb)] is missing!</B>")
+			. += span_danger("<B>DEAR GOD! THEY'VE BEEN BEHEADED!</B>")
 			continue
 		if(missing_limb == BODY_ZONE_L_ARM || missing_limb == BODY_ZONE_L_LEG)
 			l_limbs_missing++
 		else if(missing_limb == BODY_ZONE_R_ARM || missing_limb == BODY_ZONE_R_LEG)
 			r_limbs_missing++
 
-		. += span_boldwarning("[capitalize(t_his)] [parse_zone(missing_limb)] is missing!")
+		. += span_boldwarning("[t_His] [parse_zone(missing_limb)] is missing!")
 
 	if(l_limbs_missing >= 2 && r_limbs_missing == 0)
 		. += span_tinydanger("[t_He] look[p_s()] all right now...")

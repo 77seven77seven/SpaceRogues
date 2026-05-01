@@ -49,7 +49,7 @@
 	if (can_bleed()) // its not before dam_type == BRUTE because we want blood, it looks worse but ehh
 		limb_owner.bleed(rand(20, 40))
 
-	if(dam_type == BRUTE)
+	if(wounding_type == WOUND_BLUNT)
 		new /obj/effect/gibspawner/generic(get_turf(limb_owner), limb_owner)
 		drop_organs(limb_owner, TRUE)
 		qdel(src)
