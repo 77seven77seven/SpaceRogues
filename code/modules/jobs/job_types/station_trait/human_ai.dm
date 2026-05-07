@@ -2,7 +2,7 @@
 	title = JOB_HUMAN_AI
 	description = "Assist the crew, open airlocks, follow your lawset, and coordinate your cyborgs."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SILICON
-	faction = FACTION_STATION
+	faction = FACTION_NONE
 	total_positions = 0
 	spawn_positions = 0
 	supervisors = "the Captain, Research Director, and your lawset"
@@ -38,7 +38,7 @@
 	rpg_title = "Omnissiah"
 	random_spawns_possible = FALSE
 	allow_bureaucratic_error = FALSE
-	job_flags = STATION_JOB_FLAGS | STATION_TRAIT_JOB_FLAGS | JOB_ANTAG_PROTECTED
+	//job_flags = STATION_JOB_FLAGS | STATION_TRAIT_JOB_FLAGS | JOB_ANTAG_PROTECTED
 	human_authority = JOB_AUTHORITY_NON_HUMANS_ALLOWED //we can safely assume NT doesn't care what species AIs are made of, much less if they can't even afford an AI.
 
 /datum/job/human_ai/get_roundstart_spawn_point()
