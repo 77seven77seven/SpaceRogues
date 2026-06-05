@@ -15,7 +15,7 @@
 	view = "15x15"
 	hub = "Exadv1.spacestation13"
 	hub_password = "kMZy3U5jJHSiBQjr"
-	name = "/tg/ Station 13"
+	name = "Fringe Sector: In Rogue Space"
 	fps = 30
 	cache_lifespan = 0
 	map_format = SIDE_MAP

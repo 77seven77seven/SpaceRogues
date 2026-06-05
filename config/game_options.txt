@@ -144,7 +144,7 @@ PROTECT_ROLES_FROM_ANTAGONIST
 #HUMAN_AUTHORITY HUMAN_WHITELIST
 
 ## If late-joining players have a chance to become a traitor/changeling
-ALLOW_LATEJOIN_ANTAGONISTS
+#ALLOW_LATEJOIN_ANTAGONISTS
 
 ## Uncomment to prevent the nuclear operative leader from getting the war declaration item
 #DISABLE_WAROPS
@@ -160,7 +160,7 @@ DYNAMIC_CONFIG_ENABLED
 ALLOW_RANDOM_EVENTS
 
 ## Uncomment this to disable station traits.
-#FORBID_STATION_TRAITS
+FORBID_STATION_TRAITS
 
 ## The lower bound, in deciseconds, for how soon another random event can be scheduled.
 ## Defaults to 1500 deciseconds or 2.5 minutes

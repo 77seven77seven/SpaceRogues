@@ -8,7 +8,7 @@
 	/// Whether this HUD element can be hidden from the client's "screen" (moved off-screen) or not
 	var/always_shown = FALSE
 	/// If true we will create this button every time the HUD is generated
-	var/always_available = TRUE
+	var/always_available = FALSE
 
 ///Set the HUD in New, as lobby screens are made before Atoms are Initialized.
 /atom/movable/screen/lobby/New(loc, datum/hud/our_hud, ...)
@@ -194,14 +194,24 @@
 	update_appearance(UPDATE_ICON)
 	SEND_SIGNAL(hud, COMSIG_HUD_PLAYER_READY_TOGGLE)
 
+/atom/movable/screen/lobby/title
+	name = "Title"
+	screen_loc = "TOP:-15,CENTER:-115"
+	icon = 'icons/hud/lobby/title.dmi'
+	icon_state = "title"
+	always_shown = TRUE
+	always_available = TRUE
+
 ///Shown when the game has started
 /atom/movable/screen/lobby/button/join
 	name = "Join Game"
-	screen_loc = "TOP:-13,CENTER:-58"
+	screen_loc = "TOP:-120,CENTER:-54"
 	icon = 'icons/hud/lobby/join.dmi'
 	icon_state = "" //Default to not visible
 	base_icon_state = "join_game"
 	enabled = null // set in init
+	always_shown = TRUE
+	always_available = TRUE
 
 /atom/movable/screen/lobby/button/join/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()

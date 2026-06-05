@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(dynamic)
 	name = "Dynamic"
-	ss_flags = SS_NO_INIT
+	ss_flags = SS_NO_INIT | SS_NO_FIRE // Does this disable antags? Let's find out!
 	wait = 5 MINUTES
 
 	// These vars just exist for admins interfacing with dynamic
