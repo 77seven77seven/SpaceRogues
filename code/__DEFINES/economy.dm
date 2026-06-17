@@ -45,6 +45,9 @@
 #define ACCOUNT_SEC "SEC"
 #define ACCOUNT_SEC_NAME "Defense Budget"
 
+#define ACCOUNT_STATION "STN"
+#define ACCOUNT_STATION_NAME "Station Budget"
+
 #define IS_DEPARTMENTAL_CARD(card) (card in SSeconomy.dep_cards)
 #define IS_DEPARTMENTAL_ACCOUNT(account) (account in SSeconomy.departmental_accounts)
 

@@ -59,16 +59,15 @@
 	. += "\nYou have access to all radio channels, but they are not automatically tuned. Check your radio for more information."
 
 /datum/outfit/job/captain
-	name = "Captain"
-	jobtype = /datum/job/captain
+	name = "Station Director"
+	jobtype = /datum/job/director
 
-	id = /obj/item/card/id/advanced/gold
+	id = /obj/item/card/id/advanced/gold/director
 	id_trim = /datum/id_trim/job/captain
 	uniform = /obj/item/clothing/under/rank/captain
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace
 	backpack_contents = list(
 		/obj/item/melee/baton/telescopic/gold = 1,
-		/obj/item/station_charter = 1,
 		)
 	belt = /obj/item/modular_computer/pda/heads/captain
 	ears = /obj/item/radio/headset/heads/captain/alt

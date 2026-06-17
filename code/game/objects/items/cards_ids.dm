@@ -1395,6 +1395,12 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_TASTEFULLY_THICK_ID_CARD, INNATE_TRAIT)
 
+/obj/item/card/id/advanced/gold/director/Initialize(mapload)
+	. = ..()
+	var/datum/bank_account/department_account = SSeconomy.get_dep_account(ACCOUNT_STATION)
+	if(department_account)
+		set_account(department_account)
+
 /obj/item/card/id/advanced/gold/captains_spare
 	name = "captain's spare ID"
 	desc = "The spare ID of the High Lord himself."

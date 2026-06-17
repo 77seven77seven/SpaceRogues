@@ -7,10 +7,9 @@
 
 	outfit = /datum/outfit/job/captain
 
-	paycheck = PAYCHECK_COMMAND
-	paycheck_department = ACCOUNT_SEC
+	//paycheck = PAYCHECK_COMMAND // The Director shares a bank account with the Station.
+	//paycheck_department = ACCOUNT_STATION
 
-	mind_traits = list(HEAD_OF_STAFF_MIND_TRAITS)
 	desensitized_base = DESENSITIZED_THRESHOLD
 
 	display_order = JOB_DISPLAY_ORDER_CAPTAIN
@@ -28,4 +27,3 @@
 	)
 
 	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS | JOB_ANTAG_PROTECTED
-	rpg_title = "Star Duke"
