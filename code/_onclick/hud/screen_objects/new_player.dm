@@ -215,13 +215,13 @@
 
 /atom/movable/screen/lobby/button/join/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
+	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(show_join_button))
 	switch(SSticker.current_state)
 		if(GAME_STATE_PREGAME, GAME_STATE_STARTUP)
 			set_button_status(FALSE)
-			RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(show_join_button))
+			icon_state = "loading"
 		if(GAME_STATE_SETTING_UP)
 			set_button_status(TRUE)
-			RegisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP, PROC_REF(hide_join_button))
 		else
 			set_button_status(TRUE)
 
@@ -269,13 +269,14 @@
 
 /atom/movable/screen/lobby/button/join/proc/show_join_button()
 	SIGNAL_HANDLER
+	icon_state = base_icon_state
 	set_button_status(TRUE)
 	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP)
 	RegisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP, PROC_REF(hide_join_button))
 
 /atom/movable/screen/lobby/button/join/proc/hide_join_button()
 	SIGNAL_HANDLER
-	set_button_status(FALSE)
+	icon_state = "loading"
 	UnregisterSignal(SSticker, COMSIG_TICKER_ERROR_SETTING_UP)
 	RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, PROC_REF(show_join_button))
 
